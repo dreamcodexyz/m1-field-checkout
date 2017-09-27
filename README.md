@@ -27,10 +27,10 @@ custom field on checkout page magento 1.9.3
 
 # use in email
 
-{{depend order.getQuestioncheckoutFieldHtml()}}
-<tr>
-    <td class="address-details">
-        <p>{{var order.getQuestioncheckoutFieldHtml()}} &nbsp;</p>
-    </td>
-</tr>
-{{/depend}}
+	{{depend order.getQuestioncheckoutFieldHtml()}}
+	<tr>
+	    <td class="address-details">
+	        <p>{{var order.getQuestioncheckoutFieldHtml()}} &nbsp;</p>
+	    </td>
+	</tr>
+	{{/depend}}
