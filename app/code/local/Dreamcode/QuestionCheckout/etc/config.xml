@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Dreamcode_QuestionCheckout>
+            <version>0.1.0</version>
+        </Dreamcode_QuestionCheckout>
+    </modules>
+    <frontend>
+    </frontend>
+    <global>
+        <fieldsets>
+            <sales_convert_quote>
+                <questioncheckout_field><to_order>*</to_order></questioncheckout_field>
+            </sales_convert_quote>
+
+            <sales_convert_order>
+                <questioncheckout_field><to_quote>*</to_quote></questioncheckout_field>
+            </sales_convert_order>
+        </fieldsets>
+        <blocks>
+            <questioncheckout>
+                <class>Dreamcode_QuestionCheckout_Block</class>
+            </questioncheckout>
+        </blocks>
+        <models>
+            <questioncheckout>
+                <class>Dreamcode_QuestionCheckout_Model</class>
+            </questioncheckout>
+        </models>
+        <resources>
+            <questioncheckout_setup>
+                <setup>
+                    <module>Dreamcode_QuestionCheckout</module>
+                    <class>Mage_Sales_Model_Mysql4_Setup</class>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </questioncheckout_setup>
+            <questioncheckout_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </questioncheckout_write>
+            <questioncheckout_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </questioncheckout_read>
+        </resources>
+        <helpers>
+            <questioncheckout>
+                <class>Dreamcode_QuestionCheckout_Helper</class>
+            </questioncheckout>
+        </helpers>
+
+        <events>
+            <sales_quote_save_before>
+                <observers>
+                    <save_before>
+                        <type>singleton</type>
+                        <class>Dreamcode_QuestionCheckout_Model_Observer</class>
+                        <method>saveQuoteBefore</method>
+                    </save_before>
+                </observers>
+            </sales_quote_save_before>
+
+            <!--<sales_quote_save_after>-->
+                <!--<observers>-->
+                    <!--<save_after>-->
+                        <!--<type>singleton</type>-->
+                        <!--<class>Dreamcode_QuestionCheckout_Model_Observer</class> -->
+                        <!--<method>saveQuoteAfter</method> -->
+                    <!--</save_after>-->
+                <!--</observers>-->
+            <!--</sales_quote_save_after>-->
+            <!--<sales_quote_load_after> -->
+                <!--<observers>-->
+                    <!--<load_after>-->
+                        <!--<type>singleton</type>-->
+                        <!--<class>Dreamcode_QuestionCheckout_Model_Observer</class> -->
+                        <!--<method>loadQuoteAfter</method> -->
+                    <!--</load_after>-->
+                <!--</observers>-->
+            <!--</sales_quote_load_after>-->
+
+            <!--<sales_model_service_quote_submit_after> -->
+                <!--<observers>-->
+                    <!--<sales_model_service_quote_submit_after>-->
+                        <!--<type>singleton</type>-->
+                        <!--<class>Dreamcode_QuestionCheckout_Model_Observer</class> -->
+                        <!--<method>saveOrderAfter</method> -->
+                    <!--</sales_model_service_quote_submit_after>-->
+                <!--</observers>-->
+            <!--</sales_model_service_quote_submit_after>-->
+            <sales_order_load_after>
+                <observers>
+                    <sales_order_load_after>
+                        <type>singleton</type>
+                        <class>Dreamcode_QuestionCheckout_Model_Observer</class>
+                        <method>loadOrderAfter</method>
+                    </sales_order_load_after>
+                </observers>
+            </sales_order_load_after>
+        </events>
+
+        <!--<sales>-->
+            <!--<rewrite>-->
+                <!--<order>Dreamcode_QuestionCheckout_Model_Sales_Order</order>-->
+            <!--</rewrite>-->
+        <!--</sales>-->
+    </global>
+</config>

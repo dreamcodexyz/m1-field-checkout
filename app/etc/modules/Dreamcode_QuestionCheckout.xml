@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Dreamcode_QuestionCheckout>
+            <active>true</active>
+            <codePool>local</codePool>
+        </Dreamcode_QuestionCheckout>
+    </modules>
+</config>
