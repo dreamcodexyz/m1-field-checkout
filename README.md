@@ -7,7 +7,7 @@ custom field on checkout page magento 1.9.3
         <!-- question_ship -->
         <?php $scopeId = Mage::app()->getStore()->getStoreId(); ?>
         <?php if(Mage::app()->getStore($scopeId)->getConfig('questioncheckout/general/allow')):?>
-            <div class="onestepcheckout-enable-terms">
+            <div>
                 <label><?php echo Mage::app()->getStore($scopeId)->getConfig('questioncheckout/general/question');?> </label> <br>
                 <input type="hidden" name="question_shipping[question]" value="<?php echo Mage::app()->getStore($scopeId)->getConfig('questioncheckout/general/question');?>">
                 <?php
@@ -28,9 +28,5 @@ custom field on checkout page magento 1.9.3
 # use in email
 
 	{{depend order.getQuestioncheckoutFieldHtml()}}
-	<tr>
-	    <td class="address-details">
-	        <p>{{var order.getQuestioncheckoutFieldHtml()}} &nbsp;</p>
-	    </td>
-	</tr>
+	   <p>{{var order.getQuestioncheckoutFieldHtml()}} &nbsp;</p>
 	{{/depend}}
